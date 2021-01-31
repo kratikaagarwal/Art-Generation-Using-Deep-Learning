@@ -16,4 +16,8 @@ Neural Style Transfer is a fun and interesting technique which takes two images-
 This technique of image style transfer is later extended to videos by applying style transfer to each frame of the video and then recombining the frames to get the stylized version of the video.
 
 Pytorch is used at backend and Flask is used to deploy the model to web.
-
+![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture1.jpg)
+![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture2.jpg)
+![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture3.jpg)
+![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture4.jpg)
+![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture5.jpg)
