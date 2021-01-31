@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/images/logo6.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning">
+    <img src="https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/images/logo6.png" alt="Logo" >
   </a>
 
   <h3 align="center"> Art Generation Using Deep Learning</h3>
