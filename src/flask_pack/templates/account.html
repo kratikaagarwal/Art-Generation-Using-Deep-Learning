@@ -1,0 +1,83 @@
+{% extends "layout1.html" %}
+  {% block title %}Account{% endblock %}
+  {% block head %}
+  {{ super() }}
+<style type="text/css">
+	
+	.main-content {left:50%;
+		width: 100%;
+		top:70%;}
+	.content{
+		margin-top: 50%;
+		color:#000;
+display: inline;
+
+	}
+	.container{
+		width: 50%;margin: 8px 26%;
+	}
+	#main-footer{
+  top:150%;left:0;
+
+}
+#letter .dropdown-content a{
+	top:70px;
+	z-index:3;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>{% endblock %}
+<div class="main-content" style="color: black;">
+{% block maincontent %}
+<div class="content">
+	<div ><img src="static/profile_pics/{{ current_user.image_file }}" height="120px" width="120px"><div>
+	<div><h2 style="color: #33334d;">{{ current_user.username | capitalize }}</h2>
+	<p style="color: #b3b3cc;">{{ current_user.email}}</p></div>
+</div>
+
+
+<form action="" method="post"  class="container" enctype="multipart/form-data">
+  {{ form.hidden_tag() }} <!-- the form instance passed to this template is form and hiddentag is for security pupose imp to put-->
+   <h2>Account Info</h2><i class="fa fa-user"></i> 
+{% if form.username.errors %}
+
+    {{ form.username(placeholder="Username",style="border:red 1px solid;") }}
+    <div class="error-feedback">
+     {% for error in form.username.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+ {% else %}
+    {{ form.username(placeholder="Username") }}
+ 
+ {% endif %}
+<br>
+
+  <i class="fa fa-envelope"></i>
+  {% if form.email.errors %}
+
+      {{ form.email(placeholder="Email",style="border:red 1px solid;") }}
+      <div class="error-feedback">
+        {% for error in form.email.errors %}
+                  <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+  {% else %}
+    {{ form.email(placeholder="Email") }}
+ 
+ {% endif %}  
+ <br>
+<br><br>
+  {{ form.picture(class="file-form") }}
+  {% if form.picture.errors %}
+  	{% for error in form.picture.errors%}
+  	<span class="text-danger">{{ error }}</span>
+  	{% endfor %}
+  	{% endif %}
+  <br>	
+
+      {{ form.submit(class="button")}}                
+</form>
+{% endblock %}
+</div>

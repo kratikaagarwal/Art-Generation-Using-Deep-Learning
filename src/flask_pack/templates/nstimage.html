@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+	{% block title %}Image Style Transfer{% endblock %}
+	{% block head %}
+  {{ super() }}
+ 
+      <style type="text/css">
+      	.main-container{
+				background-image: url('static/images/newbg.jpg');
+   filter: blur(14px);/* Add the blur effect */
+  height: 200%; 
+ /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+			}
+				
+      	.main-header{ display: flex;
+	flex-basis: 14%;
+	 color: blue;
+  font-weight: bold;
+  position: absolute;
+  top:12%;
+  left:50%;
+   transform: translate(-50%, -80%);
+   z-index: 2;
+  width: 100%;
+  padding:20px 20px;
+  text-align: right;
+color:white;}
+     #navbar{
+  	 color:#fff;}
+
+#navbar a{
+	color:blue;
+	
+}
+
+
+
+.showcase{
+color:blue;
+  top:25%;
+  left:25%;
+ line-height: 3em;
+ margin-left: 2em;
+}
+
+
+
+.mergebtn{
+border-radius: 1em;
+color:#de7845;
+ cursor: pointer;
+padding:.7em 4.5em;
+margin-top: 2.4em;
+font-size: .5em;
+}
+ 
+.mergebtn:hover{
+	background-color: #ddd;
+	color:#de7845;
+}
+
+ .click {
+ width: 200px;
+height: 200px;
+  cursor: pointer;
+  outline: none;
+  margin:0 ;
+transition: transform .2s;
+
+}
+
+::-webkit-file-upload-button{
+  background: #ddd;
+  border-radius: 1.2em;
+  padding:10px 20px;
+  color:blue;
+  font-size:1.2em;
+}
+#mainfooter{position: absolute;
+	background-image: none;
+  top:100%;
+  width:100%;
+  text-align: center;
+  height :auto;
+  color: white;
+border-top: 1px white solid;
+margin:0 1em;
+  padding:1.2em;
+}
+ 
+.footer-about,.footer-contact{
+	border-right: 1px white solid;
+	margin-left: 2em;
+	padding-right: 2em;
+}
+      
+    
+</style>
+      {% endblock %}
+
+<body><div class="main-container">{% block container %}{% endblock %}</div>
+
+
+<div class="showcase">
+	{% block showcase %}
+
+	<h1 align="center">Convert PhotoGraphs To Amazing Artworks<br><br>
+	<form action="" method="post" enctype="multipart/form-data" >
+    {{ form.hidden_tag() }}
+<span>Step 1: Choose Content Image</span><br>
+{{ form.content() }}<br>
+  {% if form.content.errors %}
+    {% for error in form.content.errors%}
+    <span class="text-danger">{{ error }}</span>
+    {% endfor %}
+    {% endif %}
+  <br>  
+<span>Step 2: Choose Style Image</span><br>
+{{ form.style() }}<br>
+  {% if form.style.errors %}
+    {% for error in form.style.errors%}
+    <span class="text-danger">{{ error }}</span>
+    {% endfor %}
+    {% endif %}
+  <br>  
+ <br>
+      {{ form.submit(class="mergebtn") }} 
+	
+
+	</form>
+{% endblock %}
+</div>
+
+

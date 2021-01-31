@@ -1,0 +1,136 @@
+
+	<!DOCTYPE html>
+	
+	<head>
+		 {% block head %}
+   
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>{% block title %}{% endblock %}</title>
+		 <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
+		<link rel="icon"  type="image/png" href="static/images/logo1.png">
+	<script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
+      data-auto-a11y="true"></script>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<style>#navbar a:hover, .dropbtn:hover {
+	background-color: #0778b5;
+  color:#fff;
+  border-radius: 1em;
+
+}
+#main-footer{
+  background:url('static/images/bgg.jpg');}
+</style>
+		   {% endblock %}	
+	</head>
+	<body>
+		<div class="flash-alert">	
+			{% with messages=get_flashed_messages(with_categories=true)  %}
+		{% if messages %}
+		  {% for category, message in messages %}
+		  <div class="{{ category }}">
+		  	{{ message }}
+		  </div>
+		  {% endfor %}
+		  {% endif %}
+{% endwith %}
+</div>
+
+	<div class="main-header">
+		<header id="logo">
+	
+		<img src="static/images/logo6.png" width="120px" height="60px" style="margin-top: 20px;margin-right: 10px;" >
+
+
+</header>
+<nav id="navbar">
+	
+		<ul>
+			<li><a href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i> Home</a></li>
+			{% if current_user.is_authenticated %}
+			<div class="dropdown" style="float:right;" >
+				<button class="dropbtn" id="letter" >
+				{{ current_user.username[0] | capitalize}}{# Extract 1st letter of username and convert to upparcase#}</button>
+				<div class="dropdown-content" style="right:0;top:78px;border-radius: 1.5em;">
+				 <a href="{{ url_for('account') }}" ><i class="fas fa-user-circle"></i> My Account</a>
+				 <a href="{{ url_for('logout') }}" ><i class="fas fa-sign-out-alt"></i> Logout</a>
+				</div>
+			</div>	 
+			{% else %}
+			   <a href="{{ url_for('login') }}" class="loginbtn"><i class="fa fa-fw fa-user"></i> Login</a>
+			{% endif %}
+
+			<div class="dropdown">
+ <button class="dropbtn"><a href="{{ url_for('service') }}"><i class="fas fa-cog"></i> Services
+     		 <i class="fa fa-caret-down"></i></a>
+    </button>
+<div class="dropdown-content">
+<a href="{{ url_for('nstimage') }}">Image Style Transfer</a><!--in url_for (we pass the name of route funcion not the route def nstimage():is the route d unction)-->
+<a href="{{ url_for('nstvideo') }}">Video Style Transfer</a>
+
+</div>
+</div>
+		
+			<li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+			<li><a href="{{ url_for('contact') }}"><i class="fa fa-fw fa-envelope"></i> Contact</a></li>
+		</ul>
+
+</nav> 
+	</div>
+
+<div class="main-container">
+		{% block container %}{% endblock%}
+	</div>
+
+	<div class="main-content">
+	
+	
+		{% block maincontent %}{% endblock %}
+	</div>
+<div class="showcase">
+		{% block showcase %}{% endblock %}
+</div>
+<div class="wtforms">
+		{% block wtforms %}{% endblock %}
+</div>
+
+<div class="gallery">
+		{% block gallery %}{% endblock %}
+</div>
+
+<footer id="main-footer">
+<div class="footer">
+	<div class="footer-contact">
+		<h2> Our Contact</h2>
+		<p  style="font-size: 1.1em;"><i class="fas fa-map-marker-alt"></i> ChakraTech ,<br>Agra,India<br><br>		
+		<i class="fas fa-mobile-alt"></i> XXX-XXX-XXXX<br>	<br>
+		<i class="fas fa-envelope"></i> support@atsomecompany.com	</p>
+	</div>
+	<div class="footer-about" ><h2>About Us</h2><p style="font-size: 1.1em;">We are a team of two Computer Science students at Hindustan College Of Science & Technology.We are like minded people whose objective is to make a significant contribution to our society by leveraging our programming skills.</p></div>
+
+	<div class="footer-social" style="font-size: 1.5em;"><h4>Social Media</h4>
+<i class="fab fa-facebook-square "></i>
+<i class="fab fa-linkedin"></i>
+<i class="fab fa-instagram-square "></i>
+<i class="fab fa-twitter"></i>
+
+	</div>
+
+</div>
+ <strong>Copyright &copy; 2019-2020 ChakraTech Inc. All rights reserved.
+
+
+
+
+
+</strong>
+
+ </footer>
+
+<!--Bootstrap JS part
+	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>-->
+	</body>
+	</html>

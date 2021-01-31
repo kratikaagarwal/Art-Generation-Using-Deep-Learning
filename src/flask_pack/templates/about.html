@@ -1,0 +1,77 @@
+{% extends "layout1.html" %}
+  {% block title %}About Us{% endblock %}
+  {% block head %}
+  {{ super() }}
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/aboutstyle.css') }}">
+  
+  <style type="text/css">
+    .main-container{
+        background-image: url('static/images/ser.jpg');
+        filter: blur(12px);
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width:100%;
+
+  }.main-content {
+ 
+  color: #000;
+
+  top: 47%;
+  left: 50%;
+ }
+.main-header{
+  flex-basis:7%;}
+  #main-footer{
+  top:210%;}
+  </style>  
+      {% endblock %}
+
+<body>
+
+
+<div class="main-container">{% block container %}{% endblock%}</div>
+
+<div class="main-content" style=" color:#000;" >
+  {% block maincontent %}
+    <h1 style="font-size: 3em;">Meet Us</h1>
+    <h3 >We are a team of four Computer Science students at Hindustan College Of Science & Technology.We've developed this website as part of our final year project.
+      </h3>
+        {% endblock %}
+  
+  
+  </div>
+
+
+
+<div class="showcase">
+{% block showcase %}
+<div class="col">
+  <div class="about-overlay" style="margin-left: 20%;">
+  <img src="static/images/images.png" alt="KA" style="width:40%;">
+  <h1>Kratika Agarwal</h1>
+  <p class="about-title">Team Lead, TechnoArt</p>
+  <p>HCST</p>
+ 
+  <p><button class="about-button">Contact</button></p>
+
+</div>
+</div>
+   <div class="col">
+
+  <div class="about-overlay" style="margin-left: 35%;" >
+  <img src="static/images/images.png" alt="CG" style="width:40%; ">
+  <h1>Chandul Gautam</h1>
+  <p class="about-title">, TechnoArt</p>
+  <p>HCST</p>
+
+  <p><button class="about-button">Contact</button></p>
+
+</div>
+</div>
+
+  
+{% endblock %}
+</div>
+

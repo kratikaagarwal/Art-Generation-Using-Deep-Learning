@@ -1,0 +1,133 @@
+
+	<!DOCTYPE html>
+	
+
+	<head>
+		 {% block head %}
+   
+ 
+		<title>{% block title %}{% endblock %}</title>
+
+		<link rel="icon"  type="image/png" href="static/images/logo1.png">
+	<script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
+      data-auto-a11y="true"></script>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<style>
+		#navbar a:hover, .dropbtn:hover {
+	background-color: #0778b5;
+  color:#fff;
+  border-radius: 1em;
+}
+
+#main-footer{
+  background:url('static/images/bgg.jpg');}
+</style>
+		   {% endblock %}	
+	</head>
+	<body>
+
+<div class="flash-alert">
+	{% with messages=get_flashed_messages(with_categories=true)  %}
+		{% if messages %}
+		  {% for category,message in messages %}
+		  <div class="{{ category }}">
+		  	{{ message }}
+		  </div>
+		  {% endfor %}
+		  {% endif %}
+{% endwith %}
+</div>
+	<div class="main-container">
+		
+			{% block container %}{% endblock%}
+	</div>
+
+	<div class="main-header">
+		<header id="logo">
+	
+		<img src="static/images/logo6.png" width="120px" height="60px" style="margin-top: 20px;margin-right: 10px;" >
+
+
+</header>
+<nav id="navbar">
+	
+		<ul>
+			
+
+		
+			{% if current_user.is_authenticated %}
+		
+
+			<div class="dropdown" style="float:right;" >
+				<button class="dropbtn" id="letter" >
+				{{ current_user.username[0] | capitalize}}{# Extract 1st letter of username and convert to upparcase#}</button>
+				<div class="dropdown-content" style="right:0;top:100px;border-radius: 1.5em;">
+				 <a href="{{ url_for('account') }}" ><i class="fa fa-fw fa-user"></i>My Account</a>
+				 <a href="{{ url_for('logout') }}" ><i class="fas fa-sign-out-alt"></i> Logout</a>
+				</div>
+			</div>	 
+			{% else %}
+			   <a href="{{ url_for('login') }}" class="loginbtn"><i class="fa fa-fw fa-user"></i> Login</a>
+			{% endif %}
+
+			<li><a href="{{ url_for('home') }}" ><i class="fa fa-fw fa-home"></i> Home</a></li>
+			<li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About</a></li>
+			<li><a href="{{ url_for('contact') }}" ><i class="fa fa-fw fa-envelope"></i> Contact</a></li>
+
+			<div class="dropdown">
+ <button class="dropbtn"><a href="{{ url_for('service') }}" ><i class="fas fa-cog"></i> Services
+     		 <i class="fa fa-caret-down"></i></a>
+    </button>
+<div class="dropdown-content">
+<a href="{{ url_for('nstimage') }}">Image Style Transfer</a>
+<a href="{{ url_for('nstvideo') }}">Video Style Transfer</a>
+
+</div>
+</div>
+		
+		</ul>
+
+</nav> 
+	</div>
+
+
+	<div class="main-content">
+		{% block maincontent %}{% endblock %}
+	</div>
+<div class="showcase">
+		{% block showcase %}{% endblock %}
+</div>
+
+
+<footer id="main-footer">
+<div class="footer">
+	<div class="footer-contact">
+		<h2> Our Contact</h2>
+		<p  style="font-size: 1.1em;"><i class="fas fa-map-marker-alt"></i> ChakraTech Inc,<br>Agra,India<br><br>		
+		<i class="fas fa-mobile-alt"></i> XXX-XXX-XXXX<br>	<br>
+		<i class="fas fa-envelope"></i> support@chakratech.com	</p>
+	</div>
+	<div class="footer-about" ><h2>About Us</h2><p style="font-size: 1.1em;">We are a team of four Computer Science students at Hindustan College Of Science & Technology.We are like minded people whose objective is to make a significant contribution to our society by leveraging our programming skills.</p></div>
+
+	<div class="footer-social" style="font-size: 1.5em;"><h4>Social Media</h4>
+<i class="fab fa-facebook-square "></i>
+<i class="fab fa-linkedin"></i>
+<i class="fab fa-instagram-square "></i>
+<i class="fab fa-twitter"></i>
+
+	</div>
+
+</div>
+ <strong>Copyright &copy; 2019-2020 ChakraTech Inc. All rights reserved.
+
+
+
+
+
+</strong>
+
+ </footer>
+
+
+	</body>
+	</html>

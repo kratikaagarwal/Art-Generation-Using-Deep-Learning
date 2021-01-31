@@ -1,0 +1,124 @@
+{% extends "layout1.html" %}
+  {% block title %}Register{% endblock %}
+  {% block head %}
+  {{ super() }}
+
+    <style>
+
+	body
+{ background-image:url("static/images/backg.jpg");
+background-size:cover;
+font: normal 20px arial,helvetica,sans-serif;
+background-repeat: no-repeat;
+}
+.myform{ 
+	width:38%;height:85%;
+	position:absolute;
+	top:30%;
+	left:30%;
+color:white;
+background:#b3b3cc;
+	padding-left:60px;
+	padding-right:0px;
+}
+.myform	input[type="text"],input[type="email"],input[type="password"]
+	{border:none;
+		width: 70%;
+padding:3%;margin:3%;
+	border-radius:.3em;
+	background:#888;
+color:white;
+font-size:1em;
+}
+ .myform h2{
+  margin-left:64px;
+  color:#4600b3 ;
+  margin-top:37px;}
+	.regbtn	{width: 85%;
+	background:#4600b3;
+	color:white;
+	padding:10px 50px;
+border-radius:12px;
+font-size:20px;
+
+}
+.regbtn:hover{
+opacity: 0.7;}
+
+.myform	::placeholder{padding:50px;
+	margin:20px;color:white;
+		}
+
+#main-footer{
+  top:150%;}
+
+	</style>
+  {% endblock %}
+	
+ {% block wtforms %}
+       
+<form action="" method="post"  class="myform">
+  {{ form.hidden_tag() }} <!-- the form instance passed to this template is form and hiddentag is for security pupose imp to put-->
+   <h2>REGISTER</h2>
+   <i class="fa fa-user"></i> 
+{% if form.username.errors %}
+
+    {{ form.username(placeholder="Username",style="border:red 1px solid;") }}
+    <div class="error-feedback">
+     {% for error in form.username.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+ {% else %}
+    {{ form.username(placeholder="Username") }}
+ 
+ {% endif %}
+<br>
+
+  <i class="fa fa-envelope"></i>
+  {% if form.email.errors %}
+
+      {{ form.email(placeholder="Email",style="border:red 1px solid;") }}
+      <div class="error-feedback">
+        {% for error in form.email.errors %}
+                  <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+  {% else %}
+    {{ form.email(placeholder="Email") }}
+ 
+ {% endif %}  
+ <br>
+
+ <i class="fa fa-lock"></i> 
+   {% if form.password.errors %}
+      {{ form.password(placeholder="Password",style="width: 70%;margin:3%;padding:3%;border:red 1px solid;") }}
+    <div class="error-feedback">
+   {% for error in form.password.errors %}
+   <span>{{ error }}</span>
+   {% endfor %}
+ </div>
+ {% else %}
+    {{ form.password(placeholder="Password",style="width: 70%;margin:3%;") }}
+ 
+ {% endif %}  
+ <br>
+
+ <i class="fa fa-lock"></i> 
+   {% if form.confirm_password.errors %}
+{{ form.confirm_password(placeholder="Confirm Password",style="width: 70%;margin:3%;padding:3%;padding:3%;border:red 1px solid;") }}
+ <div class="error-feedback">
+   {% for error in form.confirm_password.errors %}
+   <span>{{ error }}</span>
+   {% endfor %}
+ </div>
+ {% else %}
+    {{ form.confirm_password(placeholder="Confirm Password",style="width: 70%;margin:3%;padding:3%;") }}
+ 
+ {% endif %}  
+ <br>
+
+      {{ form.submit(class="regbtn")}}                
+</form>
+
+{% endblock %}
