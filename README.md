@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/images/logo6.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center"> Art Generation Using Deep Learning</h3>
