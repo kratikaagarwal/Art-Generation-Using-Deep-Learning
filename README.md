@@ -9,7 +9,7 @@
 
  
 ## About The Project
-It is a Deep learning project which implements LA Gatys paper- <a href="https://arxiv.org/abs/1508.06576" target="_blank"><b>"A neural Algorithm of Artistic Style"</b></a>
+It is a Deep learning project which implements LA Gatys paper- <a href="https://arxiv.org/abs/1508.06576" target="_blank"><b>"A Neural Algorithm of Artistic Style"</b></a>
 
 Neural Style Transfer is a fun and interesting technique which takes two images- a content image and  a style image and generates an output image which is actually the content image but painted in the style of the style image. Pre- trained convolutional neural network VGG19 is used to get feature representations of content and style image.
 
