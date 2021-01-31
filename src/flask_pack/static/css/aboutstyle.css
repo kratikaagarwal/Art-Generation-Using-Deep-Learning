@@ -1,0 +1,51 @@
+
+
+.showcase{width: 100%;
+  height:auto;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.col{
+  flex-direction: column;
+  flex:25%;
+  
+   
+}
+
+.about-overlay {
+  
+  width:50%;
+  margin:5%;
+   white-space: nowrap; 
+  color:#0778b5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+background-color: #ddd; 
+  text-align: center;
+  font-family: arial;
+}
+
+
+
+.about-title {
+  color: #0778b5;
+  font-size: 18px;
+}
+
+.about-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+
+.about-button:hover {
+  opacity: 0.7;
+}

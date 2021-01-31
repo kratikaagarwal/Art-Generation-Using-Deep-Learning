@@ -1,0 +1,50 @@
+{% extends "layout2.html" %}
+  {% block title %}Login{% endblock %}
+  {% block head %}
+  {{ super() }}
+     
+      
+      <style type="text/css">
+    
+ .modal-content {text-align: center;
+  height:125%;
+width: 45%;
+  margin-top: 1%;
+ }
+ #show{position: absolute;
+  top:10%;
+  padding:2%;
+  width: 35%;
+  text-align: center;
+  background: #ddd;
+  font-family:  font-family: "Times New Roman", Times, serif;
+font-size: 1.5em;
+margin:4%;
+}
+.emoji{
+  font-size: 2.2em;
+transition: all .2s ease-in-out;
+border:none;}
+.emoji:hover{
+ 
+  transform: scale(1.3);
+}
+      </style>
+       {% endblock %}
+
+<div id="id01" class="modal">
+  {% block modal %}
+  <div class="modal-content animate" style="background:#F6F7F8;" >
+        <div class="imgcontainer">
+          <span onclick="history.back(-1)" class="close" title="Close Login Form">&times;</span>  
+      </div>
+
+      
+    <div id="hide">
+      
+     </div>
+
+  </div>
+ {% endblock %}
+ </div>  
+

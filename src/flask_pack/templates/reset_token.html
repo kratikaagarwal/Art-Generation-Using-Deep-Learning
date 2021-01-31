@@ -1,0 +1,85 @@
+{% extends "layout2.html" %}
+  {% block title %}Reset Password{% endblock %}
+  {% block head %}
+  {{ super() }}
+     
+        {% endblock %}
+
+
+<div id="id01" class="modal">
+    {% block modal %}
+  <div class="flash-alert" style="margin:2% 35%">
+  {% with messages=get_flashed_messages(with_categories=true)  %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="{{ category }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+{% endwith %}
+ </div> 
+
+  <form class="modal-content animate" action="" method="post">
+  	{{ form.hidden_tag() }} 
+   <div class="imgcontainer">
+      <span  class="close" title="Close Form" onclick="history.back(-1)">&times;</span><!--history.back(-1)is used to redirect it to previous page on cloking on cross button-->
+      
+      <h2>Reset Password</h2>
+    </div>
+
+    <div class="container">
+     <i class="fa fa-envelope"></i>
+  {% if form.email.errors %}
+
+      {{ form.email(placeholder="Email",style="border:red 1px solid;") }}
+      <div class="error-feedback">
+        {% for error in form.email.errors %}
+                  <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+  {% else %}
+    {{ form.email(placeholder="Email") }}
+ 
+ {% endif %}
+    <i class="fas fa-unlock-alt"></i>
+  {% if form.password.errors %}
+
+      {{ form.password(placeholder="Password",style="border:red 1px solid;") }}
+      <div class="error-feedback">
+        {% for error in form.password.errors %}
+                  <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+  {% else %}
+    {{ form.password(placeholder="Password") }}
+ 
+ {% endif %}  
+ <br>
+ <i class="fas fa-unlock-alt"></i>
+  {% if form.confirm_password.errors %}
+
+      {{ form.confirm_password(placeholder="Confirm Password",style="border:red 1px solid;") }}
+      <div class="error-feedback">
+        {% for error in confirm_form.password.errors %}
+                  <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+  {% else %}
+    {{ form.confirm_password(placeholder="Confirm Password") }}
+ 
+ {% endif %}  
+ <br>
+
+
+    {{ form.submit(class="button") }} 
+ 
+  
+
+
+   
+   
+
+  </form>
+    {% endblock %}
+</div>

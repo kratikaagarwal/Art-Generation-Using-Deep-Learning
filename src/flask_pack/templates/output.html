@@ -1,0 +1,40 @@
+{% extends "layout2.html" %}
+  {% block title %}OutputImage{% endblock %}
+  {% block head %}
+  {{ super() }}
+     
+      
+
+      <style type="text/css">
+ 
+ .modal-content {text-align: center;
+  height:65%;
+width: 45%;
+  margin-top: 5%;
+ }
+
+
+      </style>
+        {% endblock %}
+
+
+<div id="id01" class="modal">
+  {% block modal %}
+  <div class="modal-content animate" style="background:#F6F7F8;">
+        <div class="imgcontainer">
+          <span onclick="history.back(-1)" class="close" title="Close Output">&times;</span>  
+      </div>
+
+     
+    <div id="show" >
+      <h2 style="color:#ddd;">Output Image:</h2>
+      <img src="static/nstimages/results0.png" height="300px" width="300px">
+      <div class="container" style="background-color:#ddd; padding: 10px;margin-top: 25px; text-align: center;"> 
+          <span class="signup">Please Give  <a href="{{ url_for('feedback') }}">Feedback</a></span>
+      </div>
+    </div>
+
+  </div>
+  {% endblock %}
+ </div>  
+

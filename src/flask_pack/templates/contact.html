@@ -1,0 +1,75 @@
+{% extends "layout1.html" %}
+  {% block title %}Contact Us{% endblock %}
+  {% block head %}
+  {{ super() }}
+
+	<style type="text/css">
+		.main-container{
+				background-image: url('static/images/contact.jpg');
+				 filter: blur(15px);
+  }
+.main-header{
+  flex-basis:7%;}
+  .main-content{color: #000;
+  }
+.showcase{width: 80%;
+	height:auto;
+	display: flex;
+	justify-content: center;
+  
+	align-items: center;
+margin:0 12%;
+}
+.call,.support{
+	flex:1; 
+	margin:0 5%;
+	padding: 50px;
+	width:300px;
+	text-align: center;
+	/*box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;*/
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	  transition: transform .2s;
+}
+.call:hover,.support:hover{
+  transform: scaleY(1.1);}
+ .btn{
+border-radius: .7em;
+  color:#fff;
+  background-color: #e3682b;
+  border-color:#eb9f34;}
+  .btn:hover{  background-color: #e3682b;
+  	opacity: .7;
+  }
+#main-footer{
+  top:150%;}
+
+	</style>
+	{% endblock %}	
+
+<body>
+
+
+<div class="main-container">{% block container %}{% endblock%}</div>
+
+
+	<div class="main-content">
+		 {% block maincontent %}
+		<h1 style="font-size: 3em;">Stay In Touch</h1>
+		<h3>We have a dedicated tech support team.In case you face any issues feel free to contact us and seek assisstance from our team.
+			</h3>
+			    {% endblock %}
+	</div>
+<
+<div class="showcase">
+	{% block showcase %}
+	<div class="call"><i class="fas fa-phone" style="font-size:25px; color:#000;"></i><h1>Talk To Us</h1>
+			<p>Facing Any Issues? Then pick up your phone and give us a call at:<br><br>
+				<span style="color: blue;"> XXX-XXX-XXXX </span></p>
+			<button class="btn">Call Now</button></div>
+
+	<div class="support"><i class="fas fa-headset" style="font-size:25px; color:#000;"></i><h1>Customer Support</h1><p>Any Doubts?<br><br> Do live chat or get remote assistance from our tech support team. </p>
+			<button class="btn">Get Assistance</button></div> 
+{% endblock %}
+
+
+</div>

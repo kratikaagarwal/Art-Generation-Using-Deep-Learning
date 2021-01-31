@@ -1,0 +1,78 @@
+{% extends "layout2.html" %}
+  {% block title %}Login{% endblock %}
+  {% block head %}
+  {{ super() }}
+     
+        {% endblock %}
+<body>
+
+<div id="id01" class="modal">
+    {% block modal %}
+   <div class="flash-alert" style="margin:2% 35%;">
+   {% with messages=get_flashed_messages(with_categories=true)  %}
+    {% if messages %}
+      {% for category, message in messages %}
+      <div class="{{ category }}">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+{% endwith %}
+</div>
+  <form class="modal-content animate" action="" method="post">
+  	{{ form.hidden_tag() }} 
+    <div class="imgcontainer">
+      <span  class="close" title="Close Login Form" onclick="history.back(-1)">&times;</span><!--history.back(-1)is used to redirect it to previous page on cloking on cross button-->
+      <img src="static/images/images.png" alt="Avatar" class="avatar">
+      <h2>Log In</h2>
+    </div>
+
+    <div class="container">
+     
+    <i class="fa fa-envelope"></i>
+  {% if form.email.errors %}
+
+      {{ form.email(placeholder="Email",style="border:red 1px solid;") }}
+      <div class="error-feedback">
+        {% for error in form.email.errors %}
+                  <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+  {% else %}
+    {{ form.email(placeholder="Email") }}
+ 
+ {% endif %}  
+ <br>
+
+
+<i class="fas fa-unlock-alt"></i>
+ {% if form.password.errors %}
+      {{ form.password(placeholder="Password",style="width: 70%;margin:3%;padding:3%;border:red 1px solid;") }}
+    <div class="error-feedback">
+   {% for error in form.password.errors %}
+   <span>{{ error }}</span>
+   {% endfor %}
+ </div>
+ {% else %}
+    {{ form.password(placeholder="Password",style="width: 70%;margin:3%;") }}
+ 
+ {% endif %}  
+ <br> 
+    {{ form.submit(class="button") }} 
+ 
+     <span class="psw">Forgot <a href="{{url_for('reset_token')}}">password?</a></span>
+
+
+    <br> {{ form.remember() }}{{ form.remember.label }}
+      
+    </div>
+
+   
+
+    <div class="container" style="background-color:#f1f1f1; margin-top:32px; text-align: center;"> <span class="signup">Don't have account? <a href="{{ url_for('register') }}">Sign
+Up</a></span>
+     
+    </div>
+  </form>
+    {% endblock %}
+</div>

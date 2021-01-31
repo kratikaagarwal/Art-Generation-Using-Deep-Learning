@@ -1,0 +1,112 @@
+{% extends "layout1.html" %}
+  {% block title %}Our Services{% endblock %}
+  {% block head %}
+  {{ super() }}
+	<style type="text/css">
+		
+.main-container{
+				background-image: url('static/images/office.jpg');
+				filter: blur(10px);
+  }
+.main-header{
+  flex-basis:7%;}
+
+.showcase{width: 80%;
+	height:auto;
+	display: flex;
+	justify-content: center;
+  
+	align-items: center;
+margin:0 12%;
+
+}
+.inst,.vnst,.anst{
+flex:1; 
+	margin:0 5%;
+	padding:80px 30px;
+	width:300px;
+	text-align: center;
+	/*box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;*/
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	  transition: transform .2s;
+}.inst:hover,.vnst:hover,.anst:hover {
+
+  transform: scaleX(1.1);}
+  .inst{flex:1;
+  	}
+.vnst{flex:1;}
+.anst{flex:1;}
+
+
+.gallery{
+	position: absolute;
+	background-image: url('static/images/13.jpg');
+
+	background-repeat: no-repeat;
+  /* polygon
+.element { clip-path: polygon(x1 y1, x2 y2, x3 y3, ...); }
+Copy
+Each argument pair in the list represents the x-axis and y-axis coordinates of that particular vertex of the polygon.
+
+Here’s how we’d write it in the real world (minus the currently supported WebKit-prefixed version):
+*/
+	  top:145%;
+	  width:83%;
+  height:470px;
+  margin:auto 130px;
+  color:blue;
+	}
+.gallery a{
+text-decoration: none;
+
+}
+.gallery a:hover{
+	background-color: white;
+	color: blue;
+}
+
+#main-footer{
+  top:230%;}
+
+</style>
+  {% endblock %}
+<body>
+
+<div class="main-container">{% block container %}{% endblock%}</div>
+
+<div class="main-content" style=" color:#000;" >
+	{% block maincontent %}
+	{% if current_user.is_authenticated %}
+		  <h1 style="font-size: 3em;">Welcome!</h1>
+	    <h3 >You can now successfully avail our services.
+	      </h3>
+	{% else %}
+	    <h1 style="font-size: 3em;">Our Services</h1>
+	    <h3 >We provide a range of services.In order to avail our services all you need to do is register with us.
+	      </h3>
+	{% endif %}
+        {% endblock %}
+  </div>
+
+<div class="showcase">
+	{% block showcase %}
+	<div class="inst"><i class="fas fa-images"  style="font-size:25px; color:blue"></i><h1>Image Style Transfer</h1>
+			<p>It Converts Any Photograph into A Painting In Real Time.</p>
+			<button class="btn"><a href="{{ url_for('nstimage')}}" style="text-decoration: none;">Try It Now</a></button></div>
+
+	<div class="vnst"><i class="fas fa-video" style="font-size:25px; color:blue"></i><h1>Video Style Transfer</h1><p>It Converts Any short video of 1 to 10 seconds into A Cool Stylized Version.</p>
+			<button class="btn"><a href="{{ url_for('nstvideo')}}" style="text-decoration: none;">Try It Now</a></button></div> 
+
+
+ {% endblock %}
+</div>
+
+<div class="gallery">
+	{% block gallery %}
+<h1 style="position: absolute;top:30%;left: 37%;line-height: 1.5em;"><center>View Our Work<br>
+	<a href="{{ url_for('gallery') }}" style="text-decoration:none;">Visit Gallery</a></center>
+</h1>
+{% endblock %}
+</div>
+
+</body>
