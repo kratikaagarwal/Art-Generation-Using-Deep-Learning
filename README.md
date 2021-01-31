@@ -24,4 +24,5 @@ Pytorch is used at backend and Flask is used to deploy the model to web.
 ![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture8.jpg)
 ![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture3.jpg)
 ![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture1.jpg)
+![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture7.jpg)
 ![Screenshot](https://github.com/kratikaagarwal/Art-Generation-Using-Deep-Learning/blob/main/src/flask_pack/static/screenshots/Picture2.jpg)
